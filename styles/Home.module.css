@@ -1,0 +1,36 @@
+.container {
+  height: 100vh;
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 100%;
+  width: 100%;
+  max-width: var(--max-width);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: var(--padding);
+  /* border: 1px solid black; */
+}
+
+.title {
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--padding);
+}
+
+/* Tablet and Desktop */
+@media screen and (min-width: 40em) {
+  /* .container {
+    background-color: yellow;
+  } */
+}

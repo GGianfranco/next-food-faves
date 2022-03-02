@@ -1,0 +1,73 @@
+html {
+  font-size: 16px;
+}
+
+html,
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  /* Width */
+  --max-width: 74.5rem;
+
+  /* default padding */
+  --padding: 1.5625em;
+
+  /* Fonts */
+  /* 14px */
+  --header-font-size: 0.875em;
+  /* 30px */
+  --trend-artic-font-size-xl: 1.875em;
+  /* 16px */
+  --trend-artic-font-size-l: 1em;
+  /* 13 px */
+  --trend-artic-font-size-m: 0.8125em;
+  /* 12 px */
+  --trend-artic-font-size-s: 0.75em;
+  /* 22px */
+  --artic-font-size-l: 1.375em;
+  /* 16px */
+  --artic-font-size-l: 1em;
+  /* 14px */
+  --footer-font-size-l: 0.875em;
+  /* 13 px */
+  --footer-font-size-m: 0.8125em;
+  /* 12 px */
+  --footer-font-size-s: 0.75em;
+
+  --background: white;
+  --foreground: black;
+}
+/* 
+[data-theme="light"] {
+  --background: white;
+  --foreground: black;
+} */
+
+[data-theme="dark"] {
+  --background: blue;
+  --foreground: green;
+}
+
+/* [data-theme="light"] {
+  background: yellow;
+  color: green;
+}
+
+[data-theme="dark"] {
+  background: yellow;
+  color: green;
+} */
