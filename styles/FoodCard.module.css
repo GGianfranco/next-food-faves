@@ -3,13 +3,15 @@
   flex-direction: column;
   flex: 1 0 18.75rem;
   max-width: 28.125rem;
-  height: fit-content;
+  min-height: fit-content;
+  max-height: 35rem;
   border-radius: 0.3125em;
-  box-shadow: 3px 2px 14px rgba(255, 255, 255, 0.2);
+  box-shadow: 3px 2px 14px #ffffff33;
   text-decoration: none;
   transition: all 200ms ease-in-out;
   border: 1px solid black;
   cursor: pointer;
+  background-color: var(--background);
 }
 
 .container:hover {
@@ -17,13 +19,46 @@
   box-shadow: 2px 3px 18px rgba(255, 255, 255, 0.4);
 }
 
+.container[wobble="1"] {
+  animation: wobble 1s 1;
+}
+
+@keyframes wobble {
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.container[zoomCard="1"] {
+  z-index: 999;
+  cursor: initial;
+  animation: zoomCard 2s linear 0s 1 forwards;
+}
+
+@keyframes zoomCard {
+  to {
+    transform: scale(1.3);
+  }
+}
+
 .image {
   width: 100%;
+  height: 50%;
 }
 
 .image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 .info {
@@ -33,6 +68,7 @@
   height: 100%;
   width: 100%;
   padding: var(--padding);
+  background-color: var(--background);
 }
 
 .rating {

@@ -47,27 +47,11 @@ a {
   --footer-font-size-m: 0.8125em;
   /* 12 px */
   --footer-font-size-s: 0.75em;
-
   --background: white;
   --foreground: black;
 }
-/* 
-[data-theme="light"] {
-  --background: white;
-  --foreground: black;
-} */
 
 [data-theme="dark"] {
-  --background: blue;
-  --foreground: green;
+  --background: black;
+  --foreground: white;
 }
-
-/* [data-theme="light"] {
-  background: yellow;
-  color: green;
-}
-
-[data-theme="dark"] {
-  background: yellow;
-  color: green;
-} */
