@@ -25,7 +25,7 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
   const { name, image, description, rating } = props;
   const [firstLoadAnimate, setFirstLoadAnimate] = useState(0);
   const [onClickAnimate, setOnClickAnimate] = useState(0);
-  const foodCardRef = useRef();
+  const foodCardRef = useRef<HTMLDivElement>();
 
   useEffect(() => {
     if (window.sessionStorage.getItem("firstLoadAnimated") === null) {
@@ -36,7 +36,11 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
   }, []);
 
   const handleClickOutside = (event: Event) => {
-    if (foodCardRef.current && !foodCardRef.current.contains(event.target)) {
+    console.log(foodCardRef.current);
+    if (
+      foodCardRef.current &&
+      !foodCardRef.current.contains(event.target as Node)
+    ) {
       return setOnClickAnimate(0);
     }
   };
