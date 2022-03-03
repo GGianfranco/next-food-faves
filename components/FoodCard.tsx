@@ -25,7 +25,7 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
   const { name, image, description, rating } = props;
   const [firstLoadAnimate, setFirstLoadAnimate] = useState(0);
   const [onClickAnimate, setOnClickAnimate] = useState(0);
-  const foodCardRef = useRef<HTMLDivElement>(null);
+  const foodCardRef = useRef<HTMLFormElement | null>(null);
 
   useEffect(() => {
     if (window.sessionStorage.getItem("firstLoadAnimated") === null) {
