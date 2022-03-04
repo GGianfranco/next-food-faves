@@ -32,8 +32,12 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
     setFirstLoadAnimate(true);
   }, []);
 
-  const myLoader = ({ src }) => {
-    return src;
+  type loaderParams = {
+    src: string;
+  };
+
+  const myLoader = (params: loaderParams) => {
+    return params.src;
   };
 
   return (

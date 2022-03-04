@@ -10,11 +10,15 @@ type FoodWindowOverlayProps = {
   setShow: (any: boolean) => void;
 };
 
+type loaderParams = {
+  src: string;
+};
+
 const FoodWindowOverlay: NextPage<FoodWindowOverlayProps> = (props) => {
   const { name, image, description, stringRating, setShow } = props;
 
-  const myLoader = ({ src }) => {
-    return src;
+  const myLoader = (params: loaderParams) => {
+    return params.src;
   };
 
   return (
