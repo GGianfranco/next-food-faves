@@ -12,6 +12,7 @@ type FoodCardProps = {
 };
 
 const generateRatingEmoji = function (rating: FoodCardProps["rating"]): string {
+  if (rating === 0) return "No rating";
   const upvote = "⭐";
 
   const ratingEmoji = Array(rating)
@@ -30,6 +31,10 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
   useEffect(() => {
     setFirstLoadAnimate(true);
   }, []);
+
+  const myLoader = ({ src }) => {
+    return src;
+  };
 
   return (
     <>
@@ -50,6 +55,7 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
         <div className={styles.image}>
           <Image
             src={image}
+            loader={myLoader}
             alt={image}
             width={100}
             height={50}

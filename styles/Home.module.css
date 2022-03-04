@@ -12,17 +12,31 @@
   width: 100%;
   max-width: var(--max-width);
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* column-gap: var(--padding); */
+  /* border: 1px solid black; */
+}
+
+.controls {
+  height: fit-content;
+  width: fit-content;
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding: var(--padding);
   row-gap: var(--padding);
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: flex-start;
+  padding: 0 0 0 var(--padding);
   gap: var(--padding);
 }
 

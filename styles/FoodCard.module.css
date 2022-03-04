@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   flex: 1 0 18.75rem;
-  max-width: 28.125rem;
+  /* max-width: 28.125rem;
+  max-height: 35rem; */
+  max-width: 18rem;
+  max-height: 30rem;
   min-height: fit-content;
-  max-height: 35rem;
   border-radius: 0.3125em;
   box-shadow: 3px 2px 14px #ffffff33;
   text-decoration: none;
@@ -19,7 +21,8 @@
   box-shadow: 2px 3px 18px rgba(255, 255, 255, 0.4);
 }
 
-.container[wobble="1"] {
+.container,
+.wobble {
   animation: wobble 1s 1;
 }
 
@@ -69,10 +72,15 @@
   width: 100%;
   padding: var(--padding);
   background-color: var(--background);
+  font-size: 0.9rem;
 }
 
 .rating {
   margin-bottom: var(--padding);
+}
+
+.description {
+  word-wrap: break-word;
 }
 
 .name {

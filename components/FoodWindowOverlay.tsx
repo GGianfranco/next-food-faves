@@ -13,6 +13,10 @@ type FoodWindowOverlayProps = {
 const FoodWindowOverlay: NextPage<FoodWindowOverlayProps> = (props) => {
   const { name, image, description, stringRating, setShow } = props;
 
+  const myLoader = ({ src }) => {
+    return src;
+  };
+
   return (
     <>
       <div className={styles.container} onClick={() => setShow(false)}>
@@ -20,6 +24,7 @@ const FoodWindowOverlay: NextPage<FoodWindowOverlayProps> = (props) => {
           <div className={styles.image}>
             <Image
               src={image}
+              loader={myLoader}
               alt={image}
               width={500}
               height={500}
