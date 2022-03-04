@@ -39,7 +39,6 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
           image={image}
           description={description}
           stringRating={generateRatingEmoji(rating)}
-          show={show}
           setShow={setShow}
         />
       )}
