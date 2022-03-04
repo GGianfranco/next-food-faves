@@ -10,17 +10,6 @@ const Header: NextPage = () => {
         <Link href="/" passHref>
           <div className={styles.logo}>Food Faves</div>
         </Link>
-        <div className={styles.navigation}>
-          <Link href="/about" passHref>
-            <div className={styles.nav}>Our story</div>
-          </Link>
-          <Link href="/sign-in" passHref>
-            <div className={styles.nav}>Sign In</div>
-          </Link>
-          <Link href="/sign-up" passHref>
-            <div className={styles.getStarted}>Add Food Fave</div>
-          </Link>
-        </div>
       </div>
       <ThemeChanger />
     </header>

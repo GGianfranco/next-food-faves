@@ -16,16 +16,6 @@
   row-gap: 5px;
 }
 
-/* .rating {
-  width: 100%;
-  display: flex;
-  column-gap: var(--padding);
-} */
-
-/* .rating label {
-  font-size: small;
-} */
-
 .submit {
   margin-top: var(--padding);
   align-self: flex-end;
