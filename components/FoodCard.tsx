@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../styles/FoodCard.module.css";
+import FoodWindowOverlay from "../components/FoodWindowOverlay";
 
 type FoodCardProps = {
   name: string;
@@ -23,59 +24,45 @@ const generateRatingEmoji = function (rating: FoodCardProps["rating"]): string {
 
 const FoodCard: NextPage<FoodCardProps> = (props) => {
   const { name, image, description, rating } = props;
-  const [firstLoadAnimate, setFirstLoadAnimate] = useState(0);
-  const [onClickAnimate, setOnClickAnimate] = useState(0);
-  const foodCardRef = useRef<HTMLFormElement | null>(null);
+  const [firstLoadAnimate, setFirstLoadAnimate] = useState(false);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem("firstLoadAnimated") === null) {
-      setFirstLoadAnimate(1);
-    } else {
-      setFirstLoadAnimate(0);
-    }
+    setFirstLoadAnimate(true);
   }, []);
 
-  const handleClickOutside = (event: Event) => {
-    console.log(foodCardRef.current);
-    if (
-      foodCardRef.current &&
-      !foodCardRef.current.contains(event.target as Node)
-    ) {
-      return setOnClickAnimate(0);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside, true);
-    return () => {
-      document.removeEventListener("click", handleClickOutside, true);
-    };
-  });
-
   return (
-    <div
-      className={styles.container}
-      onClick={() => setOnClickAnimate(1)}
-      wobble={firstLoadAnimate}
-      zoomCard={onClickAnimate}
-      ref={foodCardRef}
-    >
-      <div className={styles.image}>
-        {/* <img src={image} alt={name} /> */}
-        <Image
-          src={image}
-          alt={image}
-          width={100}
-          height={50}
-          layout="responsive"
+    <>
+      {show && (
+        <FoodWindowOverlay
+          name={name}
+          image={image}
+          description={description}
+          stringRating={generateRatingEmoji(rating)}
+          setShow={setShow}
         />
+      )}
+      <div
+        className={`${styles.container} ${firstLoadAnimate ? "wobble" : ""}`}
+        onAnimationEnd={() => setFirstLoadAnimate(false)}
+        onClick={() => setShow(true)}
+      >
+        <div className={styles.image}>
+          <Image
+            src={image}
+            alt={image}
+            width={100}
+            height={50}
+            layout="responsive"
+          />
+        </div>
+        <div className={styles.info}>
+          <div className={styles.name}>{name}</div>
+          <div className={styles.rating}>{generateRatingEmoji(rating)}</div>
+          <div className={styles.description}>{description}</div>
+        </div>
       </div>
-      <div className={styles.info}>
-        <div className={styles.name}>{name}</div>
-        <div className={styles.rating}>{generateRatingEmoji(rating)}</div>
-        <div className={styles.description}>{description}</div>
-      </div>
-    </div>
+    </>
   );
 };
 
