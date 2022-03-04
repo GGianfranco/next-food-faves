@@ -24,11 +24,11 @@ const generateRatingEmoji = function (rating: FoodCardProps["rating"]): string {
 
 const FoodCard: NextPage<FoodCardProps> = (props) => {
   const { name, image, description, rating } = props;
-  const [firstLoadAnimate, setFirstLoadAnimate] = useState(0);
+  const [firstLoadAnimate, setFirstLoadAnimate] = useState(false);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setFirstLoadAnimate(1);
+    setFirstLoadAnimate(true);
   }, []);
 
   return (
@@ -44,10 +44,9 @@ const FoodCard: NextPage<FoodCardProps> = (props) => {
         />
       )}
       <div
-        className={styles.container}
-        onAnimationEnd={() => setFirstLoadAnimate(0)}
+        className={`${styles.container} ${firstLoadAnimate ? "wobble" : ""}`}
+        onAnimationEnd={() => setFirstLoadAnimate(false)}
         onClick={() => setShow(true)}
-        wobble={firstLoadAnimate}
       >
         <div className={styles.image}>
           <Image
